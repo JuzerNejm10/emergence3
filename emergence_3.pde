@@ -10,6 +10,7 @@ void setup() {
   smooth();
   background(255);
   frameRate(15);
+  noCursor();
   
   xstartNoise = random(20);
   ystartNoise = random(20);
