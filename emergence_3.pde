@@ -58,7 +58,7 @@ void draw () {
   }
 }
 
-void dP(float x, float y, float noiseF) {
+void dP(int x, int y, float noiseF) {
   pushMatrix();
   translate(x, y);
   rotate(noiseF * radians(rad));
