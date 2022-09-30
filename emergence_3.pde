@@ -2,15 +2,15 @@ float xstart, xnoise, ystart, ynoise;
 float xstartNoise, ystartNoise;
 float rad = 150;
 float lineLength = -200;
-String radCheck="more";
-String lineCheck="more";
+String radCheck = "more";
+String lineCheck = "more";
 
 void setup() {
   size(displayWidth, displayHeight, P3D);
   smooth();
   background(255);
-  frameRate(10);
-
+  frameRate(15);
+  
   xstartNoise = random(20);
   ystartNoise = random(20);
   xstart = random(10);
@@ -24,9 +24,9 @@ void draw () {
   } else {
     rad-=17;
     if (rad>2000) {
-      radCheck="less";
+      radCheck = "less";
     } else {
-      radCheck="more";
+      radCheck = "more";
     }
   }
 
@@ -35,14 +35,11 @@ void draw () {
   } else {
     lineLength-=1;
     if (lineLength>-100) {
-      lineCheck="less";
+      lineCheck = "less";
     } else {
-      lineCheck="more";
+      lineCheck = "more";
     }
   }
-
-  println("rad:\t", + rad);
-  println("lineLength:", + lineLength);
 
   xstartNoise+=0.1;
   ystartNoise+=0.1;
@@ -55,15 +52,15 @@ void draw () {
     xnoise = xstart;
     for (int x = 0; x <= width; x+=7) {
       xnoise += 0.01;
-      drawPoint(x, y, noise(xnoise, ynoise));
+      dP(x, y, noise(xnoise, ynoise));
     }
   }
 }
 
-void drawPoint(float x, float y, float noiseFactor) {
+void dP(float x, float y, float noiseF) {
   pushMatrix();
   translate(x, y);
-  rotate(noiseFactor * radians(rad));
+  rotate(noiseF * radians(rad));
   stroke(0, 88);
   line(0, 0, lineLength, 0);
   popMatrix();
